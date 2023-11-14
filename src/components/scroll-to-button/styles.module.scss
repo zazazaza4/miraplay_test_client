@@ -1,0 +1,12 @@
+.up {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  fill: white;
+  width: 35px;
+  height: 35px;
+
+  cursor: pointer;
+  z-index: 15;
+  transition: all 0.3s ease;
+}

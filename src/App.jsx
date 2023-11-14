@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import AppRouter from '@/routes/AppRouter';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
+import { ScrollUpButton } from '@/components/scroll-to-button';
 
 import '@/assets/scss/styles.scss';
 
@@ -31,6 +32,7 @@ function App() {
         </main>
         <Footer />
       </Router>
+      <ScrollUpButton />
       {fetchDevTools}
     </QueryClientProvider>
   );
