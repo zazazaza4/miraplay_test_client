@@ -1,0 +1,163 @@
+@import '@/assets/scss/styles';
+
+.footer {
+  height: 430px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .greenLight {
+    bottom: 0;
+    height: 320px;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+
+    background: linear-gradient(to bottom, transparent, rgba(63, 156, 20, 0.2));
+  }
+}
+
+.content {
+  display: flex;
+  gap: 70px;
+  height: 100%;
+  margin: 0 auto;
+  padding-bottom: 45px;
+  padding-top: 64px;
+  width: 1170px;
+
+  .block {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+
+    .title {
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 188%;
+      color: $main-text-color;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .contract {
+      margin-bottom: 10px;
+      height: 15px;
+      font-size: 12px;
+      color: $second-text-color;
+      text-decoration: underline;
+      padding-left: 8px;
+    }
+
+    .text {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 150%;
+      margin-top: 5px;
+      color: $second-text-color;
+    }
+
+    .item {
+      width: fit-content;
+      position: relative;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 143%;
+      color: var(--second-text-color);
+      cursor: pointer;
+      transition: all 0.2s ease-in;
+      overflow: hidden;
+
+      a {
+        font: inherit;
+      }
+    }
+
+    .socials {
+      align-items: center;
+      display: flex;
+      gap: 20px;
+      margin-top: 5px;
+      padding: 10px;
+    }
+
+    .copyright {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 150%;
+      margin-top: 16px;
+
+      color: #6d6d6d;
+    }
+
+    .list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 250px;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 143%;
+
+      color: $second-text-color;
+    }
+
+    .box {
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      background: #3f9c14;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .game {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 143%;
+
+      color: $second-text-color;
+    }
+
+    .downloadLink {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 20px;
+
+      text-transform: uppercase;
+
+      color: $main-text-color;
+    }
+  }
+}
+
+.payments {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  padding: 0 10px;
+
+  .visaMaster {
+    height: 35px;
+    width: 45px;
+  }
+
+  .platon {
+    height: 35px;
+    width: 45px;
+  }
+}
