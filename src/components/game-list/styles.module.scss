@@ -176,6 +176,10 @@
     background-repeat: no-repeat;
     background-position: center;
 
+    @include mobile {
+      font-size: 25px;
+    }
+
     &Title {
       color: white;
       font-size: 65px;
