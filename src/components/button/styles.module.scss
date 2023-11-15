@@ -6,7 +6,7 @@
   outline: 0;
   border: none;
   vertical-align: baseline;
-  background: #e0e1e2 none;
+  background: transparent;
   color: $main-text-color;
   margin: 0;
   text-shadow: none;
@@ -31,14 +31,14 @@
   }
 
   &__greenOutline {
-    box-shadow: 0px 20px 40px rgba(63, 156, 20, 0.3);
+    box-shadow: 0 0 50px 40px $main-green-color inset, 0 0 0 0 $main-green-color;
+    border-radius: 10px;
+
     border-color: $main-green-color;
-    box-shadow: 0 0 40px 40px $main-green-color inset,
-      0 0 0 0 var $main-green-color;
 
     &:hover {
       box-shadow: 0 0 10px 0 $main-green-color inset,
-        0 0 10px 4px var $main-green-color;
+        0 0 10px 4px $main-green-color;
     }
   }
 
