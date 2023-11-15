@@ -7,6 +7,8 @@ import { Button } from '@/components/button';
 import { useGames } from '@/hooks/useGamesQuery';
 import { GameCartSize, ButtonColor } from '@/constants/enums';
 import { GameCard } from '@/components/game-card';
+import { Spinner } from '@/components/spinner';
+import { GameItem } from '@/components/game-item';
 
 import { genres, sort } from './data';
 
@@ -32,7 +34,7 @@ const GameList = () => {
 
   const [openCard, setOpenCard] = useState(null);
 
-  const { games, length, refetch } = useGames(
+  const { games, length, refetch, isLoading } = useGames(
     page,
     sortValue === sort.newFirst,
     genre,
@@ -40,8 +42,9 @@ const GameList = () => {
   );
 
   useEffect(() => {
+    console.log('refetch', games);
     refetch();
-  }, [page, genre, showMode]);
+  }, [page, genre, showMode, sortValue]);
 
   return (
     <section className={styles.games}>
@@ -106,28 +109,46 @@ const GameList = () => {
           </div>
         </div>
       </div>
-      <ul className={styles.games}>
-        {games.map((game) => (
-          <div key={game._id} onClick={() => setOpenCard(game)}>
-            <GameCard {...game} largeSize={GameCartSize.LARGE} />
-          </div>
-        ))}
-      </ul>
-      {games.length > 0 ? (
-        length === games.length && (
-          <Button
-            color={ButtonColor.GREEN}
-            onClick={() => setPage((prev) => prev + 1)}
-            className={styles.button}
-          >
-            Показати ще
-          </Button>
-        )
-      ) : (
-        <div className={styles.notFound}>
-          <h4 className={styles.notFoundTitle}>Нічого не знайдено</h4>
+
+      {isLoading ? (
+        <div className={styles.loading}>
+          <Spinner />
         </div>
+      ) : (
+        <>
+          <ul className={styles.games}>
+            {games.map((game) => (
+              <div key={game._id} onClick={() => setOpenCard(game)}>
+                <GameCard {...game} largeSize={GameCartSize.LARGE} />
+              </div>
+            ))}
+          </ul>
+          {games.length ? (
+            length !== games.length && (
+              <div className={styles.buttons}>
+                <Button
+                  isDisabled={isLoading}
+                  color={ButtonColor.GREEN}
+                  onClick={() => setPage((prev) => prev + 1)}
+                  className={styles.button}
+                >
+                  Показати ще
+                </Button>
+              </div>
+            )
+          ) : (
+            <div className={styles.notFound}>
+              <h4 className={styles.notFoundTitle}>Нічого не знайдено</h4>
+            </div>
+          )}
+        </>
       )}
+
+      <GameItem
+        isVisible={Boolean(openCard)}
+        game={openCard}
+        setCard={setOpenCard}
+      />
     </section>
   );
 };
