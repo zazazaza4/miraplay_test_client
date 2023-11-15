@@ -1,12 +1,20 @@
 @import '@/assets/scss/styles';
 
 .games {
-  width: 1170px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
+
+  padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 50px;
 
   color: $main-text-color;
+
+  @include tablet {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
   .title {
     font-weight: 900;
@@ -15,6 +23,10 @@
     text-transform: uppercase;
 
     margin-bottom: 42px;
+
+    @include tablet {
+      font-size: 32px;
+    }
   }
 
   .genres {
@@ -22,6 +34,12 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+
+    @include tablet {
+      flex-wrap: nowrap;
+      overflow-y: auto;
+      padding-bottom: 10px;
+    }
 
     &Item {
       padding: 0 25px;
@@ -39,17 +57,25 @@
       border: 1px solid #454545;
       backdrop-filter: blur(10px);
       border-radius: 10px;
+
+      @include tablet {
+        padding: 0 15px;
+      }
     }
   }
 
   .filter {
-    @include flexbox(normal, normal);
+    @include flexbox(space-evenly, normal);
 
     &Right {
       width: 370px;
       @include flexbox(normal, normal);
 
       flex-direction: column;
+
+      @include tablet {
+        display: none;
+      }
 
       .sort {
         height: 50%;
@@ -129,7 +155,8 @@
     margin-top: 65px;
 
     width: 100%;
-    display: flex;
+
+    @include flexbox(center, center);
     flex-wrap: wrap;
     gap: 30px;
   }
@@ -166,6 +193,10 @@
   .button {
     width: 370px;
     height: 78px;
+
+    @include tablet {
+      width: 270px;
+    }
   }
 
   .buttons {

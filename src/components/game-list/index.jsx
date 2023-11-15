@@ -117,9 +117,12 @@ const GameList = () => {
         <>
           <ul className={styles.games}>
             {games.map((game) => (
-              <div key={game._id} onClick={() => setOpenCard(game)}>
-                <GameCard {...game} largeSize={GameCartSize.LARGE} />
-              </div>
+              <GameCard
+                {...game}
+                largeSize={GameCartSize.LARGE}
+                key={game._id}
+                onClick={() => setOpenCard(game)}
+              />
             ))}
           </ul>
           {games.length ? (
