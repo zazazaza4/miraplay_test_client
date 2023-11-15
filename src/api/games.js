@@ -2,7 +2,7 @@ import axios from '@/utils/axios';
 
 export async function getGames(page, isFreshGamesFirst, genre, gamesToShow) {
   try {
-    const response = await axios.get(`/games`, {
+    const response = await axios.post(`/games`, {
       page,
       isFreshGamesFirst,
       genre,
