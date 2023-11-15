@@ -1,9 +1,13 @@
 import clsx from 'clsx';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import { Image } from '@/components/image';
 import { Logo } from '@/components/logo';
 import { Link } from '@/components/link';
+import { checkIsAuth } from '@/store/slices/authSlice';
+import { getIsAuthOpen, setIsAuthOpen } from '@/store/slices/authFormSlice';
 
 import visaImg from '@/assets/images/visa_master.png';
 import platonImg from '@/assets/images/platon.png';
@@ -25,6 +29,22 @@ const animation = {
 };
 
 const Footer = () => {
+  const isAuth = useSelector(checkIsAuth);
+  const isAuthOpen = useSelector(getIsAuthOpen);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleAuthOpen = (event, to) => {
+    event.preventDefault();
+
+    if (isAuth) {
+      navigate(to);
+    } else {
+      dispatch(setIsAuthOpen(!isAuthOpen));
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.content}>
@@ -88,7 +108,9 @@ const Footer = () => {
                   custom={i}
                   variants={animation}
                 >
-                  <Link to={link}>{title}</Link>
+                  <Link to={link} onClick={(e) => handleAuthOpen(e, link)}>
+                    {title}
+                  </Link>
                 </motion.li>
               );
             })}
@@ -107,6 +129,7 @@ const Footer = () => {
                   whileInView="visible"
                   custom={i}
                   variants={animation}
+                  onClick={(e) => handleAuthOpen(e, link)}
                 >
                   <Link to={link}>{title}</Link>
                 </motion.li>
@@ -133,7 +156,7 @@ const Footer = () => {
                       styles.link,
                       i === info.length - 1 && styles.downloadLink
                     )}
-                    to={link}
+                    to={'#'}
                     target="_blank"
                     isHover={false}
                   >
