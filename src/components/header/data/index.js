@@ -20,3 +20,26 @@ export const navigationLinks = [
     isHover: true,
   },
 ];
+
+export const navigationLinksMobile = [
+  {
+    to: '/games',
+    label: 'Ігри',
+    isHover: false,
+  },
+  {
+    to: '/about',
+    label: 'Про платформу',
+    isHover: false,
+  },
+  {
+    to: '/news',
+    label: 'Новини',
+    isHover: false,
+  },
+  {
+    to: '/faq',
+    label: 'FAQ',
+    isHover: false,
+  },
+];

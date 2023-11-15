@@ -8,7 +8,9 @@ import { Logo } from '@/components/logo';
 import { Authorization } from '@/components/authorization';
 import { checkIsAuth } from '@/store/slices/authSlice';
 import { setIsAuthOpen, getIsAuthOpen } from '@/store/slices/authFormSlice';
+import { getScreenWidth } from '@/utils/getScreenWidth';
 
+import { HeaderMobile } from './header-modile';
 import { navigationLinks } from './data';
 
 import styles from './styles.module.scss';
@@ -20,6 +22,8 @@ const Header = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { isNotDesktop } = getScreenWidth();
+
   const handleAuthOpen = (event, to) => {
     event.preventDefault();
 
@@ -30,7 +34,9 @@ const Header = () => {
     }
   };
 
-  return (
+  return isNotDesktop ? (
+    <HeaderMobile />
+  ) : (
     <header className={styles.header}>
       <div className={styles.container}>
         <Logo />
@@ -57,7 +63,7 @@ const Header = () => {
           <div
             className={styles.user}
             onClick={() => {
-              isLogged: dispatch(setIsAuthOpen(!isAuthOpen));
+              dispatch(setIsAuthOpen(!isAuthOpen));
             }}
           >
             <FaUser color="white" size={15} />
