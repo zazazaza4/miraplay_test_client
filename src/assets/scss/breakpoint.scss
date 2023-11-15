@@ -1,13 +1,13 @@
 @import './variables';
 
 @mixin mobile {
-  @media screen and (max-width: var(--sizes-page-width-mobile)) {
+  @media screen and (max-width: $mobile-width) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media screen and (max-width: var(--sizes-page-width-tablet)) {
+  @media screen and (max-width: $table-width) {
     @content;
   }
 }
