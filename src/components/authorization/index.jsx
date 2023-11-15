@@ -7,6 +7,7 @@ import clsx from 'clsx';
 import { IoCloseOutline, IoEye } from 'react-icons/io5';
 
 import { Button } from '@/components/button';
+import { Spinner } from '@/components/spinner';
 import { ButtonColor } from '@/constants/enums';
 import { useDisableScroll } from '@/hooks/useDisableScroll';
 import {
@@ -162,6 +163,7 @@ const Authorization = () => {
           <IoCloseOutline size={30} color="white" />
         </button>
       </div>
+      {true && <Spinner className={styles.loading} />}
     </div>
   );
 };
