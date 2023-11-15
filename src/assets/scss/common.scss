@@ -27,11 +27,16 @@ html,
 ul {
   list-style-type: none;
   padding: 0;
+  margin: 0;
 }
 
 a {
   color: $main-text-color;
   text-decoration: none;
+}
+
+button {
+  font: inherit;
 }
 
 p,
@@ -53,4 +58,15 @@ h6 {
 
 #main {
   flex-grow: 1;
+}
+
+::-webkit-scrollbar {
+  background-color: #1d1d1d;
+  height: 6px;
+  width: 6px;
+
+  &-thumb {
+    background-color: $main-green-color;
+    border-radius: 5px;
+  }
 }
