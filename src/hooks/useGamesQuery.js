@@ -32,7 +32,12 @@ export const useGames = (page, isFreshFirst = true, genre, gamesToShow) => {
       try {
         const data = await getGames(page, isFreshFirst, genre, gamesToShow);
 
-        setGames((prev) => [...prev, ...data.games]);
+        if (page === 1) {
+          setGames(data.games);
+        } else {
+          setGames((prev) => [...prev, ...data.games]);
+        }
+
         setGamesListLength(data.gamesListLength);
 
         if (data.gamesListLength === gamesListLength) {
