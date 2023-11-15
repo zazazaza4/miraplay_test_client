@@ -1,0 +1,52 @@
+@import '@/assets/scss/styles';
+
+.menu {
+  background-color: rgba(29, 29, 29, 0.9);
+  height: $header-height;
+  left: 0;
+  position: fixed;
+  top: 0;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: 100%;
+  z-index: 12;
+
+  &Hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-in;
+  }
+}
+
+.container {
+  @include flexbox(center, center);
+
+  height: 100%;
+  padding: 0 20px;
+}
+
+.list {
+  font-size: 34px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 40px;
+  right: 45px;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.item {
+  color: $main-text-color;
+  margin-bottom: 20px;
+  display: block;
+  font-size: 32px;
+
+  &Title {
+    font-size: 32px;
+  }
+}
