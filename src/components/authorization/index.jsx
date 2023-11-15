@@ -163,7 +163,7 @@ const Authorization = () => {
           <IoCloseOutline size={30} color="white" />
         </button>
       </div>
-      {true && <Spinner className={styles.loading} />}
+      {isLoading && <Spinner className={styles.loading} />}
     </div>
   );
 };
