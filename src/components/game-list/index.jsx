@@ -42,7 +42,6 @@ const GameList = () => {
   );
 
   useEffect(() => {
-    console.log('refetch', games);
     refetch();
   }, [page, genre, showMode, sortValue]);
 
