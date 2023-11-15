@@ -10,10 +10,10 @@ export const useGames = (page, isFreshFirst = true, genre, gamesToShow) => {
 
   const { isLoading, refetch } = useQuery({
     queryKey: ['get games'],
-    queryFn: () => async () => {
+    queryFn: async () => {
       const data = await getGames(page, isFreshFirst, genre, gamesToShow);
 
-      setGames(data.games);
+      setGames((prev) => [...prev, ...data.games]);
       setGamesListLength(data.gamesListLength);
 
       if (data.gamesListLength === gamesListLength) {
