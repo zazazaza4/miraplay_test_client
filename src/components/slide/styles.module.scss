@@ -3,11 +3,15 @@
 .swiper {
   position: relative;
   margin-top: 90px;
-  width: 1300px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   height: 700px;
   z-index: 100;
+
+  @include tablet {
+    height: 500px;
+  }
 
   &Slide {
     width: 100vw;
@@ -23,6 +27,10 @@
     padding: 20px;
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      margin-top: 100px;
+    }
   }
 }
 
@@ -38,6 +46,11 @@
     width: 100%;
     position: relative;
 
+    @include tablet {
+      text-align: center;
+      padding: 0 20px;
+    }
+
     .title {
       font-size: 54px;
       font-weight: 100;
@@ -48,6 +61,15 @@
 
       .thick {
         display: block;
+      }
+
+      @include tablet {
+        font-size: 36px;
+        width: 100%;
+      }
+
+      @include mobile {
+        font-size: 24px;
       }
     }
 
@@ -63,11 +85,24 @@
 
       margin-bottom: 50px;
       color: #afafaf;
+
+      @include tablet {
+        font-size: 18px;
+      }
+
+      @include mobile {
+        font-size: 14px;
+      }
     }
 
     .button {
       width: 274px;
       height: 74px;
+
+      @include tablet {
+        font-size: 12px;
+        height: 58px;
+      }
     }
 
     .download {
@@ -87,6 +122,10 @@
         width: 250px;
         color: #6d6d6d;
         text-align: center;
+      }
+
+      @include tablet {
+        display: none;
       }
     }
 
@@ -113,6 +152,10 @@
   right: 0;
   top: 0;
   z-index: -1;
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .demo {
@@ -150,6 +193,10 @@
 
     color: #afafaf;
   }
+
+  @include tablet {
+    display: none;
+  }
 }
 
 .nextSlide,
@@ -172,6 +219,10 @@
   &:hover {
     background-color: $main-green-color;
     cursor: pointer;
+  }
+
+  @include tablet {
+    display: none;
   }
 }
 

@@ -48,7 +48,7 @@ const Slide = () => {
         spaceBetween={100}
         slidesPerView={1}
         centeredSlides
-        autoplay={{ delay: 30000 }}
+        autoplay={{ delay: 3000 }}
         loop
         variants={animation}
       >
