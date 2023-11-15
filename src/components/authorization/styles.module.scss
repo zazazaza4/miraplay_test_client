@@ -46,6 +46,10 @@
   transform: translateX(0);
   transition: all 0.4s ease-in;
 
+  @include mobile {
+    width: 100%;
+  }
+
   .form {
     display: flex;
     flex-direction: column;
@@ -131,6 +135,10 @@
     font-weight: 300;
     font-size: 16px;
     margin-top: 14px;
+
+    @include mobile {
+      width: 270px;
+    }
 
     &Error {
       border-color: $error-color;
